@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-// Route::get('/one_to_one', function () {
-//     $users=User::find(1)->phone;
-//     $phones=Phone::find(1);
-//     echo $phones->user;
-// });
+Route::get('/one_to_one', function () {
+    $users=User::find(1)->phone;
+    $phones=Phone::find(1);
+    echo $phones->user;
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
