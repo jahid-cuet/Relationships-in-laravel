@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Models\Phone;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -9,9 +10,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/one_to_one', function () {
-    $users=User::find(1)->phone;
-    $phones=Phone::find(1);
-    echo $phones->user;
+    // $users=User::with('post')->find(1);
+    // return $users;
+    $posts=Post::with('user')->get();
+    return $posts;
+
 });
 
 Route::get('/dashboard', function () {
